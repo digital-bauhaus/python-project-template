@@ -1,0 +1,24 @@
+[build-system]
+requires = ['poetry>=0.12']
+build-backend = 'poetry.masonry.api'
+
+[tool.poetry]
+name = 'sample_package'
+version = '0.1.0'
+description = 'something something microservices'
+authors = ['The Author <first.last@uni-weimar.de>']
+keywords=['sample']
+license='GPL-3.0+'
+packages = [
+    { include = 'sample_package', from = 'src' },
+]
+
+[tool.poetry.dependencies]
+python = '^3.7'
+
+[tool.poetry.dev-dependencies]
+black = { version = '*', allows-prereleases = true }
+pytest = '^5.1'
+pytest-cov = '^2.7'
+tox = '^3.13'
+sphinx = "^2.2"
