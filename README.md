@@ -1,7 +1,7 @@
 # Python Project Template
 
 Python packaging can be confusing because there are
-[a][borini][lot][yeaw][of][bernat][different][smith] opinions and [loose
+[a][borini] [lot][yeaw] [of][bernat] [different][smith] opinions and [loose
 standards][pep518].
 
 This is a template for a Python project following all the current best
@@ -16,7 +16,7 @@ To use this template for your project, do the following:
 2. If you want to use another license, change `COPYING` file and `license`
    section in `pyproject.toml`. You may consider changing the filename of
    `COPYING` if you do not want to use GPL according to the licence’s
-   guidelines][so-licences].
+   [guidelines][so-licences].
 3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
    `src/$YOURPROJECT/__init__.py` accordingly.
 4. Update `docs/index.rst` with your project’s name.
