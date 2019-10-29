@@ -1,4 +1,5 @@
 # Python Project Template
+[![Build Status](https://travis-ci.com/digital-bauhaus/python-project-template.svg?branch=master)](https://travis-ci.com/digital-bauhaus/python-project-template)
 
 Python packaging can be confusing because there are
 [a][borini] [lot][yeaw] [of][bernat] [different][smith] opinions and [loose
