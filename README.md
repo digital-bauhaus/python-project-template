@@ -5,7 +5,7 @@ Python packaging can be confusing because there are
 standards][pep518].
 
 This is a template for a Python project following all the current best
-practices.
+practices. Python versions >3.6 are supported.
 
 ## Getting Started
 
