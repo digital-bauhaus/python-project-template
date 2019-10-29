@@ -10,6 +10,6 @@ install:
   - poetry install
   - poetry build
 script:
-  - black --check src
+  - black --line-length 79 --check src
   - make -C docs html
   - tox
