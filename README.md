@@ -41,7 +41,7 @@ Run the tests manually with:
 ## Code Formatting
 
 The source code is formatted with [Black][black].
-To format your contributions manually, run 
+To format your contributions manually, run
 
     black configuration_network
 
@@ -62,9 +62,9 @@ Confirm the repository and enter you login credentials.
 For file to upload enter `dist/*`.
 
 Open `.travis.yml` and add `skip_cleanup: true` and `file_glob: true` to the
-`deploy` section. I also recommend to add `tags: true` to the `on` section. This
+`deploy` section. I also recommend adding `tags: true` to the `on` section. This
 will configure Travis to only upload a new release on a
-[tagged commit][git-tag]. Otherwise it will do that for every commit. It should
+[tagged commit][git-tag]. Otherwise, it will do that for every commit. It should
 look similar to this:
 
 ```yaml
