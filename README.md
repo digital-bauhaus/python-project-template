@@ -20,6 +20,9 @@ To use this template for your project, do the following:
 3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
    `src/$YOURPROJECT/__init__.py` accordingly.
 4. Update `docs/index.rst` with your project’s name.
+5. Install [pre-commit][pre-commit] and run `pre-commit install`. This will add
+   a Git [hook][git-hooks] that automatically formats your code with
+   [Black][black] and runs your tests before committing.
 
 ## Developing
 
@@ -28,13 +31,13 @@ installing Poetry, you can install this package with:
 
     poetry install
 
-Run the tests with:
+Run the tests manually with:
 
     tox
 
 ## Code Formatting
 
-The source code is formatted with [Black](https://github.com/python/black).
+The source code is formatted with [Black][black].
 To format your contributions, run
 
     black configuration_network
@@ -43,14 +46,16 @@ All code is checked in the CI with
 
     black --check configuration_network
 
-## Continuous Integration/Continuous Deployment
+## Continuous Integration
 
 CI should work out of the box with the provided `.travis.yaml`.
+
+## Continuous Deployment
 
 To enable continuous deployment, you first have to install the
 [Travis Command Line Client][travis-cli]. Then, run
 
-    $ travis setup releases
+    travis setup releases
 
 Confirm the repository and enter you login credentials.
 For file to upload enter `dist/*`.
@@ -61,21 +66,22 @@ will configure Travis to only upload a new release on a
 [tagged commit][git-tag]. Otherwise it will do that for every commit. It should
 look similar to this:
 
-```yml
-deploy:
-  provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  file_glob: true
-  file: dist/*
-  skip_cleanup: true
-  on:
-    tags: true
-```
+    deploy:
+      provider: releases
+      api_key: "GITHUB OAUTH TOKEN"
+      file_glob: true
+      file: dist/*
+      skip_cleanup: true
+      on:
+        tags: true
 
 [borini]: https://stefanoborini.com/current-status-of-python-packaging/
 [yeaw]: https://dan.yeaw.me/posts/python-packaging-with-poetry-and-briefcase/
 [bernat]: https://www.bernat.tech/pep-517-and-python-packaging/
 [smith]: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6
 [pep518]: https://www.python.org/dev/peps/pep-0518/
+[pre-commit]: https://pre-commit.com/
+[git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[black]: https://github.com/python/black
 [travis-cli]: https://github.com/travis-ci/travis.rb
 [so-licences]: https://stackoverflow.com/a/5678716
