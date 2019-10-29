@@ -20,9 +20,12 @@ To use this template for your project, do the following:
 3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
    `src/$YOURPROJECT/__init__.py` accordingly.
 4. Update `docs/index.rst` with your project’s name.
-5. Install [pre-commit][pre-commit] and run `pre-commit install`. This will add
-   a Git [hook][git-hooks] that automatically formats your code with
-   [Black][black] and runs your tests before committing.
+5. Install [pre-commit][pre-commit] and run 
+
+        pre-commit install
+
+   This will add a Git [hook][git-hooks] that automatically formats your code
+   with [Black][black] and runs your tests before committing.
 
 ## Developing
 
@@ -38,13 +41,11 @@ Run the tests manually with:
 ## Code Formatting
 
 The source code is formatted with [Black][black].
-To format your contributions, run
+To format your contributions manually, run 
 
     black configuration_network
 
-All code is checked in the CI with 
-
-    black --check configuration_network
+All code is also automatically checked in the CI.
 
 ## Continuous Integration
 
@@ -66,14 +67,16 @@ will configure Travis to only upload a new release on a
 [tagged commit][git-tag]. Otherwise it will do that for every commit. It should
 look similar to this:
 
-    deploy:
-      provider: releases
-      api_key: "GITHUB OAUTH TOKEN"
-      file_glob: true
-      file: dist/*
-      skip_cleanup: true
-      on:
-        tags: true
+```yaml
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
+  on:
+tags: true
+```
 
 [borini]: https://stefanoborini.com/current-status-of-python-packaging/
 [yeaw]: https://dan.yeaw.me/posts/python-packaging-with-poetry-and-briefcase/
@@ -84,4 +87,5 @@ look similar to this:
 [git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 [black]: https://github.com/python/black
 [travis-cli]: https://github.com/travis-ci/travis.rb
+[git-tag]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
 [so-licences]: https://stackoverflow.com/a/5678716
