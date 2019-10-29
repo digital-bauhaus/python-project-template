@@ -43,7 +43,7 @@ Run the tests manually with:
 The source code is formatted with [Black][black].
 To format your contributions manually, run
 
-    black configuration_network
+    black src
 
 All code is also automatically checked in the CI.
 
