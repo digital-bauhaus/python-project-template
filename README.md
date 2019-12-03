@@ -8,6 +8,17 @@ standards][pep518].
 This is a template for a Python project following all the current best
 practices. Python versions >3.6 are supported.
 
+## Developing
+
+[Poetry](https://poetry.eustace.io/) is used to build the package. After
+installing Poetry, you can install this package with:
+
+    poetry install
+
+Run the tests manually with:
+
+    tox
+
 ## Getting Started
 
 To use this template for your project, do the following:
@@ -21,23 +32,15 @@ To use this template for your project, do the following:
 3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
    `src/$YOURPROJECT/__init__.py` accordingly.
 4. Update `docs/index.rst` with your project’s name.
-5. Install [pre-commit][pre-commit] and run 
+5. Install [pre-commit][pre-commit] and run
 
         pre-commit install
 
    This will add a Git [hook][git-hooks] that automatically formats your code
-   with [Black][black] and runs your tests before committing.
+   with [Black][black] and runs your tests before committing. If you don’t want
+   to install it system-wide, use the version in your virtual environment with
 
-## Developing
-
-[Poetry](https://poetry.eustace.io/) is used to build the package. After
-installing Poetry, you can install this package with:
-
-    poetry install
-
-Run the tests manually with:
-
-    tox
+        poetry run pre-commit install
 
 ## Code Formatting
 
@@ -46,7 +49,7 @@ To format your contributions manually, run
 
     black src
 
-All code is also automatically checked in the CI.
+All code is also automatically checked in the CI and in the pre-commit hook.
 
 ## Continuous Integration
 
