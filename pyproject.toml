@@ -17,7 +17,7 @@ packages = [
 python = '^3.6'
 
 [tool.poetry.dev-dependencies]
-black = { version = '*', allows-prereleases = true }
+black = { version = '*', allow-prereleases = true }
 pytest = '^5.1'
 pytest-cov = '^2.7'
 tox = '^3.13'
