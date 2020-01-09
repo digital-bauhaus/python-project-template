@@ -6,7 +6,10 @@ Python packaging can be confusing because there are
 standards][pep518].
 
 This is a template for a Python project following all the current best
-practices. Python versions >3.6 are supported.
+practices. Since there is not just one way to do those things in Python, this
+is also kind of opinionated but I tried to explain my reasons and alternatives,
+so read the whole README.
+Only Python versions >3.6 are supported.
 
 ## Developing
 
@@ -17,7 +20,7 @@ installing Poetry, you can install this package with:
 
 Run the tests manually with:
 
-    tox
+    poetry run tox
 
 ## Getting Started
 
@@ -41,6 +44,27 @@ To use this template for your project, do the following:
    to install it system-wide, use the version in your virtual environment with
 
         poetry run pre-commit install
+
+## Poetry Quickstart
+
+Poetry handles all the dependencies and virtual environments for you. To run
+your code from and in your virtual environment prepend `poetry run` to your
+command. By default, Poetry creates the virtual environments in it’s own
+directory.
+
+Since a lot of other tools expect your virtual environments in the project
+directory itself as `.venv` the configuration in `poetry.toml` tells Poetry to
+do exactly that. If you don’t want this or prefer another name for your virtual
+environment (please don’t), you have to remove/adjust the following lines
+in `poetry.toml`:
+
+    in-project = true
+    path = ".venv"
+
+You can add dependencies with `poetry [-D] add $DEPENDENCY_NAME`, where `-D`
+specifies development dependencies, e.g. libraries you need to build and
+develop the code that don’t need to be shipped for end users. I advise you to
+take a look at the [Poetry documentation][poetry documentation]
 
 ## Code Formatting
 
@@ -89,6 +113,7 @@ tags: true
 [pep518]: https://www.python.org/dev/peps/pep-0518/
 [pre-commit]: https://pre-commit.com/
 [git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[poetry documentation]: https://python-poetry.org/docs/basic-usage/
 [black]: https://github.com/python/black
 [travis-cli]: https://github.com/travis-ci/travis.rb
 [git-tag]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
