@@ -15,17 +15,16 @@ packages = [
 
 [tool.poetry.dependencies]
 python = '^3.6'
+flake8 = "^3.7.9"
+pydocstyle = "^5.0.2"
 
 [tool.poetry.dev-dependencies]
 black = { version = '*', allow-prereleases = true }
 pytest = '^5.1'
 pytest-cov = '^2.7'
 tox = '^3.13'
-sphinx = "^2.2"
 flake8 = "^3.7"
-pydocstyle = "^4.0"
 jedi = "^0.15.1"
-pre-commit = "^1.20"
 
 [tool.black]
 line-length = 79
