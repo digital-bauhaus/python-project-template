@@ -34,7 +34,6 @@ To use this template for your project, do the following:
    [guidelines][so-licences].
 3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
    `src/$YOURPROJECT/__init__.py` accordingly.
-4. Update `docs/index.rst` with your project’s name.
 5. Install [pre-commit][pre-commit] and run
 
         pre-commit install
