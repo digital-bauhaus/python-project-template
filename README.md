@@ -1,5 +1,7 @@
 # Python Project Template
 
+![Tests](https://github.com/digital-bauhaus/python-template/workflows/Tests/badge.svg)
+
 Python packaging can be confusing because there are
 [a][borini] [lot][yeaw] [of][bernat] [different][smith] opinions and [loose
 standards][pep518].
