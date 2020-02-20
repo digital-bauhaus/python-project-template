@@ -3,26 +3,14 @@
 ![Tests](https://github.com/digital-bauhaus/python-template/workflows/Tests/badge.svg)
 ![Code Style](https://github.com/digital-bauhaus/python-template/workflows/Code%20Style/badge.svg)
 
-Python packaging can be confusing because there are
-[a][borini] [lot][yeaw] [of][bernat] [different][smith] opinions and [loose
-standards][pep518].
+Python packaging can be confusing because there are [a][borini] [lot][yeaw]
+[of][bernat] [different][smith] opinions and [loose standards][pep518].
 
 This is a template for a Python project following all the current best
-practices. Since there is not just one way to do those things in Python, this
-is also kind of opinionated but I tried to explain my reasons and alternatives,
-so read the whole README.
-It is configured for Python versions 3.6 and above.
+practices. Since there is not just one way to do those things in Python this
+is also kind of opinionated but I tried to reduce this to a minimum.
 
-## Developing
-
-[Poetry](https://poetry.eustace.io/) is used to build the package. After
-installing Poetry, you can install this package with:
-
-    poetry install
-
-Run the tests manually with:
-
-    poetry run tox
+This template is configured for Python versions 3.6 and above.
 
 ## Getting Started
 
@@ -38,6 +26,11 @@ To use this template for your project, do the following:
    `src/$YOURPROJECT/__init__.py` accordingly.
 
 ## Poetry Quickstart
+
+[Poetry](https://poetry.eustace.io/) is used to build the package. After
+installing Poetry, you can install this package with:
+
+    poetry install
 
 Poetry handles all the dependencies and virtual environments for you. To run
 your code from and in your virtual environment prepend `poetry run` to your
@@ -58,22 +51,28 @@ specifies development dependencies, e.g. libraries you need to build and
 develop the code that don’t need to be shipped for end users. I advise you to
 take a look at the [Poetry documentation][poetry documentation]
 
+## Tests
+
+This template contains a minimal [Tox](https://tox.readthedocs.io/en/latest/)
+configuration for testing the project with Python 3.6, 3.7, and 3.8. Tests are
+run in the CI but you can also run them manually with:
+
+    poetry run tox
+
 ## Code Formatting
 
 The source code is formatted with [Black][black].
 To format your contributions manually, run
 
-    black src
+    poetry run black src
 
-All code is also automatically checked in the CI and in the pre-commit hook.
+All code is also automatically checked in the CI.
 
 ## Continuous Integration
 
 CI should work out of the box with the provided configurations in
-`.github/workflow`.
-
-It will check the code style with [Black][black] and run the tests with Python
-3.6, 3.7, and 3.8.
+`.github/workflow`. There is an action to check the code style and one to run
+the tests.
 
 [borini]: https://stefanoborini.com/current-status-of-python-packaging/
 [yeaw]: https://dan.yeaw.me/posts/python-packaging-with-poetry-and-briefcase/
