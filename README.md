@@ -1,6 +1,7 @@
 # Python Project Template
 
 ![Tests](https://github.com/digital-bauhaus/python-template/workflows/Tests/badge.svg)
+![Code Style](https://github.com/digital-bauhaus/python-template/workflows/Code%20Style/badge.svg)
 
 Python packaging can be confusing because there are
 [a][borini] [lot][yeaw] [of][bernat] [different][smith] opinions and [loose
