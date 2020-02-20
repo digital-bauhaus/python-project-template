@@ -25,6 +25,7 @@ pytest-cov = '^2.7'
 tox = '^3.13'
 flake8 = "^3.7"
 jedi = "^0.15.1"
+tox-gh-actions = "^0.3.0"
 
 [tool.black]
 line-length = 79
