@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
 
-  test:
+  code_style:
     runs-on: ubuntu-latest
 
     steps:
