@@ -10,8 +10,7 @@ This is a template for a Python project following all the current best
 practices. Since there is not just one way to do those things in Python this
 is also kind of opinionated but I tried to reduce this to a minimum.
 
-This template is configured for Python versions 3.6 and above and should work on
-Linux, macOS and Windows.
+This template is configured for Python versions 3.6 and above.
 
 ## Getting Started
 
@@ -35,12 +34,14 @@ installing Poetry, you can install this package with:
 
 Poetry handles all the dependencies and virtual environments for you. To run
 your code from and in your virtual environment prepend `poetry run` to your
-command. This applies to all the non-Make commands in this README.
+command. By default, Poetry creates the virtual environments in it’s own
+directory.
 
-By default, Poetry creates the virtual environments in it’s own directory.
 Since a lot of other tools expect your virtual environments in the project
-directory itself as `.venv`. To do that, add the following lines in
-`poetry.toml`:
+directory itself as `.venv` the configuration in `poetry.toml` tells Poetry to
+do exactly that. If you don’t want this or prefer another name for your virtual
+environment (please don’t), you have to remove/adjust the following lines
+in `poetry.toml`:
 
     in-project = true
     path = ".venv"
@@ -50,54 +51,28 @@ specifies development dependencies, e.g. libraries you need to build and
 develop the code that don’t need to be shipped for end users. I advise you to
 take a look at the [Poetry documentation][poetry documentation]
 
-## Tox
+## Tests
 
 This template contains a minimal [Tox](https://tox.readthedocs.io/en/latest/)
 configuration for testing the project with Python 3.6, 3.7, and 3.8. Tests are
 run in the CI but you can also run them manually with:
 
-    tox
+    poetry run tox
 
-## Makefile
+## Code Formatting
 
-This repository also provides a Makefile for convenience. It contains the
-following rules:
+The source code is formatted with [Black][black].
+To format your contributions manually, run
 
-* `install` (default): Install the package with poetry
-* `test`: This is probably the most useful rule for developing. It checks the
-          linter and runs the tests with the current Python version.
-* `codeformat`: Format all source and test files with Black.
-* `build`: Build the source distribution and wheel packages.
-* `clean`: Removes all the local build files. Note that this does not include
-           anything in the virtual environment to prevent conflicts with your
-           Poetry workflow.
+    poetry run black src
 
-I recommend using the make rules instead of running all the commands manually
-since it's easy to forget something.
+All code is also automatically checked in the CI.
 
-## GitHub Actions Workflows
+## Continuous Integration
 
 CI should work out of the box with the provided configurations in
-`.github/workflow`. The following workflows are provided
-
-### Code Formatting
-
-The `linter.yml` workflow checks the source code with [Black][black] and flake8.
-
-To format your contributions so that they will pass, run
-
-    black src tests
-
-### Tests
-
-The `test.yml` workflow will run the tests on the latest Ubuntu, macOS, and
-Windows with Python 3.6, 3.7, and 3.8.
-
-### Continuous Deployment
-
-When you push commits tagged with tags that match "v*.*.*", the source
-distribution and the wheel package get uploaded to the releases page on GitHub.
-This is configured in the `release.yml` workflow.
+`.github/workflow`. There is an action to check the code style and one to run
+the tests.
 
 [borini]: https://stefanoborini.com/current-status-of-python-packaging/
 [yeaw]: https://dan.yeaw.me/posts/python-packaging-with-poetry-and-briefcase/
