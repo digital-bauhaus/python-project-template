@@ -95,7 +95,7 @@ Windows with Python 3.6, 3.7, and 3.8.
 
 ### Continuous Deployment
 
-When you push commits tagged with tags that match "v*.*.*", the source
+When you push commits tagged with tags that match "v\*.\*.\*", the source
 distribution and the wheel package get uploaded to the releases page on GitHub.
 This is configured in the `release.yml` workflow.
 
