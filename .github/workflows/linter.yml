@@ -1,4 +1,4 @@
-name: Code Style
+name: Code Quality
 
 on: [push]
 
@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
+      - uses: actions/checkout@v2
 
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
@@ -24,5 +22,8 @@ jobs:
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Code Quality
-        run: poetry run black . --line-length 79 --check src
+      - name: Check code formatting with black
+        run: poetry run black  --check src tests
+
+      - name: Run flake8
+        run: poetry run flake8 src tests
