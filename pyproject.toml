@@ -15,15 +15,14 @@ packages = [
 
 [tool.poetry.dependencies]
 python = '^3.6'
-flake8 = "^3.7.9"
-pydocstyle = "^5.0.2"
 
 [tool.poetry.dev-dependencies]
 black = { version = '*', allow-prereleases = true }
 pytest = '^5.1'
 pytest-cov = '^2.7'
+pydocstyle = "^5.0.2"
 tox = '^3.13'
-flake8 = "^3.7"
+flake8 = "^3.7.9"
 jedi = "^0.15.1"
 tox-gh-actions = "^0.3.0"
 
