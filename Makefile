@@ -5,37 +5,55 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-# get current Python version
-PYTHON_VERSION=$(shell python -c "import sys;t='{v[0]}{v[1]}'.format(v=list(sys.version_info[0:2]));sys.stdout.write(t)")
+# Project specific variables
 SOURCE_FOLDERS = src tests
-MODULE_NAME = configuration_network
+MODULE_NAME = sample_package
+
+# get current Python 3 version
+PYTHON_VERSION=$(shell python3 -c "import sys;t='{v[0]}{v[1]}'.format(v=list(sys.version_info[0:2]));sys.stdout.write(t)")
+
+SOURCES = $(shell find $(SOURCE_FOLDERS) -type f -name '*.py')
 
 .PHONY: install
-install:
+install: .install.sentinel
+
+.install.sentinel: $(SOURCES) poetry.lock
 	poetry install
+	touch .install.sentinel
+
+poetry.lock:
+	poetry install
+	touch .install.sentinel
 
 .PHONY: codeformat
-codeformat: $(SOURCE_FOLDERS)
+codeformat: .black.sentinel
+
+.black.sentinel: $(SOURCES)
 	poetry run black $(SOURCE_FOLDERS)
+	touch .blackl.sentinel
 
 .PHONY: test
-test: lint
+test: .lint.sentinel .test.sentinel
+
+.test.sentinel: .install.sentinel
 	# only test installed python version
 	poetry run tox -e py$(PYTHON_VERSION)
+	touch .test.sentinel
 
-.PHONY: lint
-lint:
+.lint.sentinel: .install.sentinel
 	poetry run black --check $(SOURCE_FOLDERS)
 	poetry run flake8 $(SOURCE_FOLDERS)
+	touch .lint.sentinel
 
-.PHONY: build
-build: install
+.PHONY: distribution
+distribution: .dist.sentinel
+
+.dist.sentinel: .test.sentinel
 	poetry build
+	touch .dist.sentinel
 
 .PHONY: clean
 clean:
-	rm -rf data
-	rm -rf poetry.lock
-	rm -rf src/$(MODULE_NAME)/$(MODULE_NAME).egg-info
+	rm -rf src/$(MODULE_NAME).egg-info
 	rm -rf dist/
-	rm -rf htmlcov
+	rm -rf .*.sentinel

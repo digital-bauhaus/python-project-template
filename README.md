@@ -67,13 +67,17 @@ following rules:
 * `test`: This is probably the most useful rule for developing. It checks the
           linter and runs the tests with the current Python version.
 * `codeformat`: Format all source and test files with Black.
-* `build`: Build the source distribution and wheel packages.
+* `distribution`: Build the source distribution and wheel packages.
 * `clean`: Removes all the local build files. Note that this does not include
            anything in the virtual environment to prevent conflicts with your
            Poetry workflow.
 
 I recommend using the make rules instead of running all the commands manually
 since it's easy to forget something.
+
+To adjust the Makefile to your project you have to change the `MODULE_NAME`. If
+your source folder names differ from this template, this has to be changed in
+`SOURCE_FOLERS` accordingly.
 
 ## GitHub Actions Workflows
 
