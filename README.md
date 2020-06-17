@@ -42,6 +42,7 @@ Since a lot of other tools expect your virtual environments in the project
 directory itself as `.venv`. To do that, add the following lines in
 `poetry.toml`:
 
+    [virtualenvs]
     in-project = true
     path = ".venv"
 
