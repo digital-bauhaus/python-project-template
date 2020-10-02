@@ -23,8 +23,7 @@ To use this template for your project, do the following:
    section in `pyproject.toml`. You may consider changing the filename of
    `COPYING` if you do not want to use GPL according to the licence’s
    [guidelines][so-licences].
-3. Rename `src/sample_package` to `src/$YOURPROJECT` and edit
-   `src/$YOURPROJECT/__init__.py` accordingly.
+3. Rename `src/sample_package` to `src/$YOURPROJECT`.
 
 ## Poetry Quickstart
 
@@ -51,13 +50,6 @@ specifies development dependencies, e.g. libraries you need to build and
 develop the code that don’t need to be shipped for end users. I advise you to
 take a look at the [Poetry documentation][poetry documentation]
 
-## Tox
-
-This template contains a minimal [Tox](https://tox.readthedocs.io/en/latest/)
-configuration for testing the project with Python 3.6, 3.7, and 3.8. Tests are
-run in the CI but you can also run them manually with:
-
-    tox
 
 ## Makefile
 
@@ -66,7 +58,11 @@ following rules:
 
 * `install` (default): Install the package with poetry
 * `test`: This is probably the most useful rule for developing. It checks the
-          linter and runs the tests with the current Python version.
+          linter and runs the tests with the current Python version. This will
+          also run in the CI.
+* `linters`: Run the linters. You can disable certain errors in
+             [`pyproject.toml`](pyproject.toml) and the [`Makefile`](Makefile)
+             itself. This will also run in the CI.
 * `codeformat`: Format all source and test files with Black.
 * `distribution`: Build the source distribution and wheel packages.
 * `clean`: Removes all the local build files. Note that this does not include
@@ -87,11 +83,12 @@ CI should work out of the box with the provided configurations in
 
 ### Code Formatting
 
-The `linter.yml` workflow checks the source code with [Black][black] and flake8.
+The `linter.yml` workflow checks the source code with [Black][black], flake8,
+pylint and pydocstyle.
 
 To format your contributions so that they will pass, run
 
-    black src tests
+    make codeformat
 
 ### Tests
 

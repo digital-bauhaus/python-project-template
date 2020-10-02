@@ -5,8 +5,8 @@ build-backend = 'poetry.masonry.api'
 [tool.poetry]
 name = 'sample_package'
 version = '0.1.0'
-description = 'something something microservices'
-authors = ['The Author <first.last@uni-weimar.de>']
+description = 'Hi.'
+authors = ['Nicolai Ruckel <nicolai.ruckel@uni-weimar.de>']
 keywords=['sample']
 license='GPL-3.0+'
 packages = [
@@ -18,13 +18,18 @@ python = '^3.6'
 
 [tool.poetry.dev-dependencies]
 black = { version = '*', allow-prereleases = true }
+coverage = '^5.1'
+flake8 = "^3.7.9"
+pylint = "^2.6.0"
 pytest = '^5.1'
 pytest-cov = '^2.7'
 pydocstyle = "^5.0.2"
-tox = '^3.13'
-flake8 = "^3.7.9"
-jedi = "^0.15.1"
-tox-gh-actions = "^0.3.0"
+
+[tool.pylint.basic]
+good-names = "i,id"
+
+[tool.pylint.master]
+disable=["E0401","R0912","W0511"]
 
 [tool.black]
 line-length = 79

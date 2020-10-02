@@ -5,6 +5,5 @@
 .coverage
 dist/*
 poetry.lock
-.tox
-docs/_build/*
-.*.sentinel
+.coverage
+htmlcov/*
