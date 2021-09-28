@@ -4,5 +4,5 @@ from sample_package.main import main
 
 
 def test_nothing():
-    """This never fails."""
+    """Never fails."""
     assert main()
