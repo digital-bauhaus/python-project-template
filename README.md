@@ -24,6 +24,8 @@ To use this template for your project, do the following:
    `COPYING` if you do not want to use GPL according to the licence’s
    [guidelines][so-licences].
 3. Rename `src/sample_package` to `src/$YOURPROJECT`.
+4. Update `docs/index.rst` to match your package.
+5. Enable GitHub Pages to make your documentation available.
 
 ## Poetry Quickstart
 
@@ -65,6 +67,9 @@ following rules:
              itself. This will also run in the CI.
 * `codeformat`: Format all source and test files with Black.
 * `distribution`: Build the source distribution and wheel packages.
+* `docs`: Build the documentation with Sphinx
+* `docs-spelling`: Run a spell checker on the documentation. You can add your
+                   own dictionary in `docs/spelling_wordlist.txt`.
 * `clean`: Removes all the local build files. Note that this does not include
            anything in the virtual environment to prevent conflicts with your
            Poetry workflow.

@@ -6,3 +6,5 @@ dist/*
 poetry.lock
 .coverage
 htmlcov/*
+docs/api-docs/*
+docs/_build/*
